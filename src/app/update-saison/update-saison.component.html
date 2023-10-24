@@ -1,0 +1,16 @@
+<form>
+    <div v [hidden]="ajout">
+    <label>ID Saison</label>
+    <input type="text" [(ngModel)]="saison.idSai" name="idSaison" class="form-control w-25">
+    </div>
+    <div>
+    <label>Nom Saison</label>
+    <input type="text" [(ngModel)]="saison.nomSai" name="nomSaison" class="form-control"
+    placeholder="Entrez nom du  saison...">
+    </div>
+    <div class="mt-2">
+     <button type="submit" [disabled]="!saison.nomSai" class="btn btn-success"
+    (click)="saveSaison()" >{{ajout ? 'Ajouter' : 'Modifier'}}
+    </button>
+    </div>
+    </form>

@@ -1,0 +1,48 @@
+<div class="container">
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Fruit en tapant</label>
+        <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" >
+        </div>
+    </form>
+
+    <!-- <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Fruit en tapant</label>
+        <input class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)">
+        </div>
+    </form> -->
+<!-- <form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2 mt-2 ">
+    <label>Nom Fruit</label>
+    <input type="text" class="form-control" [(ngModel)]="nomFruit" name="nomFruit" class="form-control">
+    <button type="submit" (click)="rechercherFrui()" class="btn btn-primary mb-2 ml-2">Rechercher</button>
+    </div>
+</form> -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id Fruit</th>
+                        <th>Nom Fruit</th>
+                        <th>Prix en kg</th>
+                        <th>Date debut saison</th>
+                        <th>Saison</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let fruit of fruits  | searchFilter: searchTerm">
+                    <tr>
+                        <td>{{fruit.idFruit}}</td>
+                        <td>{{fruit.nomFruit}}</td>
+                        <td>{{fruit.prixFruit}}</td>
+                        <td>{{fruit.datedebutsaison | date:'dd/MM/yyyy'}}</td>
+                        <td>{{fruit.saison?.nomSai}}</td>
+                        <!-- <td><a class="btn btn-danger" (click)="supprimerFruit(fruit)">Supprimer</a></td>
+                       <td><a class="btn btn-success" [routerLink]="['/updateFruit',fruit.idFruit]">Modifier</a></td> -->
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

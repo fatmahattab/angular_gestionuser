@@ -1,0 +1,24 @@
+<div class="container mt-5">
+    <form>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" [(ngModel)]="User.username" name="id" class="form-control w-25" id="username">
+      </div>
+      
+      <div class="form-group">
+        <label for="currentRole">Current Role</label>
+        <ul>
+          <li *ngFor="let r of User.roles"><p>{{r.role}}</p><button class="btn-danger" (click)="removeRoleFromUsers(r.role_id)">remove it</button></li>
+        </ul>
+      </div>
+  
+      <div class="form-group">
+        <label for="roleSelect">Select Role to Add</label>
+        <select [(ngModel)]="idOfRole" name="roleSelectt" class="form-control">
+          <option *ngFor="let rr of roles" [ngValue]="rr">{{rr.role}}</option>
+        </select>
+      </div>
+  
+      <button class="btn btn-info" (click)="addRoleToUser()">Add Role for this User</button>
+    </form>
+  </div>
